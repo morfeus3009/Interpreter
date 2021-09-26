@@ -13,8 +13,6 @@ namespace Interpreter
     public partial class Form1 : Form
     {
         bool checkSign = false;
-        //string helper = string.Empty;
-
         List<string> textListe = new List<string>();
         Dictionary<string, string> variablen = new Dictionary<string, string>();
 
