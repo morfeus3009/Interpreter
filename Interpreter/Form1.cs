@@ -13,7 +13,8 @@ namespace Interpreter
     public partial class Form1 : Form
     {
         bool checkSign = false;
-        string helper = string.Empty;
+        //string helper = string.Empty;
+
         List<string> textListe = new List<string>();
         Dictionary<string, string> variablen = new Dictionary<string, string>();
 
@@ -25,7 +26,7 @@ namespace Interpreter
 
         private void btnStartInterpreter_Click(object sender, EventArgs e)
         {          
-            string text = "var meineErsteVariable = \"Ich bin die; Erste Variable\";var meineZweiteVariable = \"Ich bin die Zweite Variable\";";
+            string text = "var meineErsteVariable = \"Ich bin die; Erste Variable\"; var meineZweiteVariable = \"Ich bin die Zweite Variable\";";
             SplitCommands(text);
             VarToDict();
             
@@ -34,6 +35,7 @@ namespace Interpreter
         private void SplitCommands (string commands)
 
         {
+            string helper = string.Empty;
             foreach (char sign in commands)
             {
                 helper += sign;
@@ -42,6 +44,7 @@ namespace Interpreter
 
                 if (sign.Equals(';') && !checkSign)
                 {
+                    helper = helper.Trim();
                     textListe.Add(helper);
                     helper = string.Empty;
                 }
